@@ -1,9 +1,24 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      Chats
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-searchbar #search placeholder="Filter Messages" (keyup)="filter(search.value)"></ion-searchbar>
+  <ion-list>
+    <ion-item-group *ngFor="let message of messages$ | async; let i = index" type="text">
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="../../assets/userImg.jpg">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ message.username }}</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate debitis fugit illo magnam, saepe dicta esse excepturi temporibus fuga repudiandae sint fugiat nihil. Labore praesentium consequuntur exercitationem earum, et blanditiis!</p>
+        </ion-label>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+</ion-content>
