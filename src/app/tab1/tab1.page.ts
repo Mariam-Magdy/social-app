@@ -38,16 +38,15 @@ export class Tab1Page implements OnInit {
   }
 
   addPost(newData: any) {
-    console.log('fe', newData);
-    this.relative.update({post: newData.value});
-
-    // this.listRef.push({newData}).then(
-    //   resp => this.users.subscribe(res => console.log(res))
-    // );
-
+    this.listRef.push({post: newData.value}).then(
+      resp => this.users.subscribe(res => console.log(res))
+      );
+    newData = '';
+    console.log('listRef');
     // this.service.addPost(newData).pipe().subscribe(resp => this.posts = resp);
     // this.postsRef.push({ text: newData });
-    console.log('listRef');
+    // console.log('fe', newData);
+    // this.relative.update({post: newData.value});
   }
 
   // remove($key) {
